@@ -1,0 +1,20 @@
+services:
+  sw-uav:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: sw-uav:basic
+    container_name: sw-uav
+    network_mode: host
+    ipc: host
+    environment:
+      DISPLAY: ${DISPLAY:-:0}
+      QT_X11_NO_MITSHM: "1"
+      QTWEBENGINE_DISABLE_SANDBOX: "1"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ..:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    command: ["sleep", "infinity"]

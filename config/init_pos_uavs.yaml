@@ -1,0 +1,5 @@
+# Initial position for the single UAV (offline map and planning preview).
+# Connected planning uses the UAV's live GPS; this does not move the SITL vehicle.
+uav_1:
+  latitude: 47.3979709
+  longitude: 8.5461635

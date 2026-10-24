@@ -1,0 +1,37 @@
+# One MAVSDK connection; PX4 instance 0 sends MAVLink to UDP 14540.
+connection:
+  system_address: "udpin://127.0.0.1:14540"
+  server_port: 50060
+
+planning:
+  altitude_m: 13.0
+  speed_m_s: 3.0
+  spacing_m: 15.0
+  max_waypoints: 500
+  max_altitude_m: 100.0
+  max_radius_m: 1500.0
+  max_distance_m: 10000.0
+
+# Geometric evaluation; set footprint width for your sensor and chosen altitude.
+analysis:
+  footprint_width_m: 30.0
+  turn_threshold_deg: 15.0
+  turn_penalty_m: 15.0
+  time_weight: 0.1
+  energy_weight: 10.0
+
+# Reuse the existing trained models. Missing files show N/A, never zero energy.
+energy_model:
+  directory: "models/mission_energy"
+  name: "linear"
+
+safety:
+  minimum_battery_percent: 30.0
+  return_battery_percent: 20.0
+  battery_percent_scale: 100  # MAVSDK 3.15.3 reports 0..100; use 1 only for a normalized backend.
+  connect_timeout_s: 30.0
+  telemetry_timeout_s: 5.0
+  command_timeout_s: 15.0
+  takeoff_timeout_s: 60.0
+  mission_timeout_s: 900.0
+  telemetry_interval_s: 1.0

@@ -1,0 +1,8 @@
+PyQt5==5.15.*
+PyQtWebEngine==5.15.*
+qasync==0.28.0
+mavsdk==3.15.3
+PyYAML>=6.0,<7
+shapely==2.1.2
+pandas==2.3.3
+scikit-learn==1.7.2
